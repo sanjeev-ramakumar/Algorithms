@@ -22,6 +22,28 @@ public class LinkedListFlatten {
 	 * @param args
 	 */
 	public static void main(String[] args) {
+		/**
+		 * 	1->3->7
+		 * 	2  4->6
+		 *     5	
+		 *     
+		 *  Output
+		 *  1->2->3->4->5->6->7   
+		 */
+		LNodeWithChild node2 = new LNodeWithChild(2, null, null);
+		LNodeWithChild node5 = new LNodeWithChild(5, null, null);
+		LNodeWithChild node6 = new LNodeWithChild(6, null, null);
+		LNodeWithChild node4 = new LNodeWithChild(4, node6, node5);
+		LNodeWithChild node7 = new LNodeWithChild(7, null, null);
+		LNodeWithChild node3 = new LNodeWithChild(3, node7, node4);
+		LNodeWithChild node1 = new LNodeWithChild(1, node3, node2);
+		
+		flattenRecursive(node1);
+		
+		while (node1 != null) {
+			System.out.print(node1.m_data + "->");
+			node1 = node1.m_next;
+		}
 		
 	}
 
